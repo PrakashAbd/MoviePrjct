@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 3, 2019 4:36:48 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.mindtree.entity.Movie" table="MOVIE">
+        <id name="movieId" type="java.lang.String">
+            <column name="MOVIEID" />
+            <generator class="assigned" />
+        </id>
+        <property name="movieName" type="java.lang.String">
+            <column name="MOVIENAME" />
+        </property>
+        <property name="genreId" type="java.lang.String">
+            <column name="GENREID" />
+        </property>
+        <property name="actorId" type="java.lang.String">
+            <column name="ACTORID" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <property name="boxOffice" type="double">
+            <column name="BOXOFFICE" />
+        </property>
+        <many-to-one name="actor" class="com.mindtree.entity.Actor" fetch="join">
+            <column name="ACTOR" />
+        </many-to-one>
+        <many-to-one name="genre" class="com.mindtree.entity.Genre" fetch="join">
+            <column name="GENRE" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
